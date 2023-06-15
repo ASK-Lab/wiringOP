@@ -31,6 +31,10 @@
 #	back into education!
 #################################################################################
 
+if [ -z "$CC" ]; then
+    CC=gcc
+fi
+
 check_make_ok() {
   if [ $? != 0 ]; then
     echo ""
@@ -83,7 +87,7 @@ echo
 
 echo "WiringPi Library"
 cd wiringPi
-make -j5
+make CC=${CC}
 check_make_ok
 
 echo
